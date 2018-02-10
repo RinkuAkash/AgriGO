@@ -1,0 +1,46 @@
+<html>
+        <head>
+                <title>AgriGO
+                </title>
+                <meta charset="uft-8" />
+                    <link rel="stylesheet" type="text/css" href="static/style.css" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                  
+                </head>
+                <style>
+                    .page{
+                        height: 400px;
+                        width: 50%;
+                        background-color: antiquewhite;
+                    }
+                        .container{
+                        border: 2px solid #dedede;
+                        background-color: #f1f1f1;
+                        border-radius: 5px;
+                        padding: 10px;
+                        margin: 10px 0;
+                        color: black;
+                }
+                </style>
+                <script>
+                        function myFunction() {
+                            alert("your message has been sent");
+                        }
+                        </script>
+                        
+<body class="page">
+    
+<h1>welcome {{ data['name'] }}</h1>
+
+{% for row in data['messages'] %}
+<div class="container">
+    <p>{{row[0]}} says {{row[1]}} </p><br>
+</div>
+{% endfor %}
+<form action="/dashboard" method="post">
+<input type="text" name="type_msg"/>
+<input type="submit" onclick="myFunction" name="send_msg" value = "send"/>
+</form>
+<p> Note: message format " username - message"</p>
+</body>
+</html>
